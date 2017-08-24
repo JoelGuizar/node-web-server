@@ -19,9 +19,9 @@ app.use((req, res, next)=>{
   next();
 }) //the response objects between this one and the app.get are the exact same response object
 
-app.use((req,res,next) => {
-  res.render('maintenance.hbs')
-}) // the next call from the prior app.use automatically goes to the next piece of middleware
+// app.use((req,res,next) => {
+//   res.render('maintenance.hbs')
+// }) // the next call from the prior app.use automatically goes to the next piece of middleware
 
 app.use(express.static(__dirname + '/public')); //order matters -- this will still show up (the html page) -- if its before the other app.use
 
