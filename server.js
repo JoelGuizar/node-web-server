@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const app = express(); //to create an app just call the method
 const fs = require('fs');
 
+const PORT = process.env.PORT || 3000 //process env is an object that stores all of our environment vars as key-value pairs, PORT is one of them
+
 hbs.registerPartials(__dirname + '/views/partials') //choose the partial directory as the argument
 app.set('view engine', 'hbs') //tells app what view engine to set
 
@@ -54,6 +56,8 @@ app.get('/bad', (req, res) => {
 })
 
 //content type tells the browser what to expect
-app.listen(3000, ()=>{
-  console.log('Server is running on PORT 3000');
+app.listen(PORT, ()=>{
+  console.log(`Server is running on PORT ${PORT}`);
 }); //binds port locally
+
+//the PORT number is staticly set, it should be dynamic so heroku can change it//change the port
