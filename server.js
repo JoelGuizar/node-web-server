@@ -37,21 +37,25 @@ hbs.registerHelper('screamIt', (text) => {
 app.get('/', (req, res) => {
   res.render('home.hbs', {
     pageTitle: 'Home Page',
-    currentYear: new Date().getFullYear(),
     welcomeMessage: 'welcome'
   }) //response from the http, sending some data back; whoever makes this request, gets this back
 }) //2 args, the url, function to run//what to send back to the person who made the request
 
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
-    pageTitle: 'About Page',
-    currentYear: new Date().getFullYear()
+    pageTitle: 'About Page'
   }) //render is going to let you render any of the templates you have set up with your current view engine, second arg can be an object
 })
 
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Lol'
+  })
+})
+
+app.get('/project', (req, res) =>{
+  res.render('project.hbs', {
+    pageTitle: 'Project Page'
   })
 })
 
